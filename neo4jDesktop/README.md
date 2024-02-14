@@ -1,27 +1,21 @@
 # **Hands-on: neo4j**
 
-> WORCK Training School 2 -- Bielefeld, Februqry 15th, 2024
+> WORCK Training School 2 -- Bielefeld, February 15th, 2024
 
-## **What you will learn**
+<details>
+<summary>
+Part 1: neo4j, graph theory and graph models
+</summary>
 
-* install & configure neo4j Desktop
-* manage databases with neo4j Desktop & neo4j Browser
-* create, import, refactor & save data
-* query your graph & save query results
+### What you will learn? What you will not learn?
 
-## **What you will not learn**
+➕ How to install & configure neo4j Desktop; manage databases with neo4j Desktop & neo4j Browser; create, import, refactor & save data; query your graph & save query results.
 
-* interact with online neo4j DBMS/via terminal
-* data modeling & queries optimization
+➖ How to interact with online neo4j DBMS/via terminal; data modeling & queries optimization.
 
-## **What is neo4j?**
+### neo4j & graph theory
 
-* a graph database management system
-* deployed online (community server edition/AuraDB) or locally (neo4j Desktop)
-* using a language called `Cypher`
-* based on graph theory
-
-## **Graph theory**
+Neo4j is a graph database management system that can either be deployed online (community server edition/AuraDB) or locally (neo4j Desktop); it uses a language called `Cypher`; and it is based on graph theory.
 
 <picture>
 <img alt="YOUR-ALT-TEXT" src="https://graphacademy.neo4j.com/courses/neo4j-fundamentals/1-graph-thinking/1-seven-bridges/images/7-bridges.jpg"
@@ -29,24 +23,24 @@
   height= auto>
 </picture>
 
-Leonhard Euler, 1736, Königsberg, East. Prussia: "Can we walk through the city and cross each of the seven bridges only once?"
+Leonhard Euler, 1736, Königsberg, East. Prussia asked a question: "Can we walk through the city and cross each of the seven bridges only once?". The answer was we cannot, but in the process, he defined the problem in abstract terms: a representation of land masses as entities (vertices) connected by bridges (edges).
 
-Defined the problem in abstract terms: a representation of land masses as entities (vertices) connected by bridges (edges)
+### Two types of graph model
 
-## **Two types of graph model**
+The Resource Description Framework (**RDF**) and the Label Property Graph (**LPG**) are two data models used to store data in the form of graphs. Both were developed in the 2000s and are more 'relational' & agile than so-called 'relational databases'.
 
-Resource Description Framework (**RDF**) *vs* Label Property Graph (**LPG**):
+Use cases examples: 
 
-* 2 models to store data in the form of graphs, developed in the 2000s
-* More 'relational' & agile than so-called 'relational databases'
+* route finding
+* supply-chain analytics
+* realtime recommendation
+* network analysis (as done with Gephi)
 
-> Use cases: route finding; supply-chain analytics; realtime recommendation; network analysis (as done with Gephi)
+The base of graph models are `semantic triples` (vertices connected by edges): `Subject—Predicate—Object`
 
-Based on `semantic triples` (vertices connected by edges):
+In `Cypher` representation, a triple looks like this: `(:Subject)-[:Predicate]->(:Object)`
 
-* `Subject—Predicate—Object`
-
-Or, using `Cypher` representation: `(:Subject)-[:Predicate]->(:Object)`
+### RDF vs LPG pros and cons
 
 | **The Resource Description Framework** | The Label Property Graph |
 | :--- | :--- |
@@ -54,57 +48,43 @@ Or, using `Cypher` representation: `(:Subject)-[:Predicate]->(:Object)`
 | standardization (W3C specs), interoperability, scalability | less demanding (learning curve, development, and infrastructure) |
 | ontologies & open vocabularies | entities have an internal structure: `labels`, `properties`, `types` |
 | 'atomizes' information | **schema free** and **near natural language** |
-| `vertices` and `edges` have no internal structure | allows progressive refactoring as the model evolves |
-| indexed; uses 'artificial' vertices as joins | easy to 'read' |
-| infrastructure (sparql endpoints) |  |
+| `vertices` and `edges` have no internal structure | flexible: allows progressive refactoring as the model evolves |
+| indexed; uses 'artificial' vertices as joins | easy to 'read' and simpler |
+| heavy infrastructure (sparql endpoints) | local deployment and availability of `apps` |
 
-⚠️ no schema does not mean you do not have to think about your model
+⚠️ no schema does not mean you do not have to think about your model and flexibility can quickly lead to messiness.
 
-## **Why use neo4j?**
+### LPG basics
 
-**PROs**: in short = autonomy of the researcher
+The LPG model is made of **triples** composed of `nodes` linked by directed `relation(s)`:
 
-* local deployment & apps
-* relative simplicity
-* flexibility (no need for predefined ontologies and schemas)
-
-**CONs**
-
-* proprietary
-* flexibility can quickly lead to messiness
-
-## **LPG basics**
+* **nodes** have `Labels` & `Properties` (key-value pairs)
+* **relations** are directed & have `Types` & `Properties`
+* **queries** use `Cypher` instructions to traverse the graph, `MATCH` `patterns`, & `RETURN` results.
 
 <picture>
 <img alt="YOUR-ALT-TEXT" src="https://graphacademy.neo4j.com/courses/neo4j-fundamentals/2-property-graphs/1-property-graph/images/node-labels.jpg"
   width="50%"
   height= auto>
 </picture>
+</details>
 
-* **triples** composed of `nodes` linked by directed `relation(s)`
-* **nodes** have `Labels` & `Properties` (key-value pairs)
-* **relations** are directed & have `Types` & `Properties`
-* **queries** use `Cypher` instructions to traverse the graph & `MATCH` `patterns`
+<details>
+<summary>
+Part 3: First steps with neo4j
+</summary>
 
+### Installing neo4j Desktop
 
+1️⃣ [https://neo4j.com/download/](https://neo4j.com/download/)  <br />
+2️⃣ click on `download` <br />
+3️⃣ fill in the form <br />
+4️⃣ copy activation key <br />
+5️⃣ install the downloaded file and enter the activation key <br />
 
-## **Installing neo4j Desktop**
+### What does neo4j Desktop do?
 
-1️⃣ [https://neo4j.com/download/](https://neo4j.com/download/)
-2️⃣ click on `download`
-3️⃣ fill in the form
-4️⃣ copy activation key
-5️⃣ install the downloaded file and enter the activation key
-
-💡 *You should have done that already...*
-
-
-
-![](licence.png)
-
-
-
-## **What does neo4j Desktop do?**
+Neo4j is only a possible "brick" in your digital workflow. The brick that stores your data in a structured form, but not your files (scans, transcripts, etc.). It allows you to:
 
 * interact with a local (or online) DBMS using `Cypher`
 * manage your graph databases: Create DBMS | Delete | Dump | Clone
@@ -112,9 +92,7 @@ Or, using `Cypher` representation: `(:Subject)-[:Predicate]->(:Object)`
 * manage files
 * get help
 
-
-
-## **Plenty of online resources to learn more**
+If you want to learn more, there is plenty of online resources available:
 
 * [the neo4j documentation](https://neo4j.com/docs/)
 * [the neo4j developer tutorials](https://neo4j.com/developer/)
@@ -122,9 +100,7 @@ Or, using `Cypher` representation: `(:Subject)-[:Predicate]->(:Object)`
 * [cheatsheets](https://mpolinowski.github.io/docs/Development/Graphs/2020-05-03--neo4j-cheat-sheet/2020-05-03/)
 * neo4j Desktop integrated tutorials like `:play cypher` or `:play got`
 
-
-
-## **The LPG design process**
+### The LPG design process
 
 1. understand your domain & define a use case scenario
 2. develop an initial graph data model (nodes & relations)
@@ -132,9 +108,7 @@ Or, using `Cypher` representation: `(:Subject)-[:Predicate]->(:Object)`
 4. create the graph (instance model) & test data using Cypher
 5. refactor in case of change or for better performance
 
-
-
-## **General tips**
+**General tips**:
 
 * avoid semantically orthogonal labels, (same `labels` for different types of nodes)
 * avoid using `labels` that represent different levels of hierarchy:
@@ -144,9 +118,7 @@ Or, using `Cypher` representation: `(:Subject)-[:Predicate]->(:Object)`
 * create specialized relationships on top of more generic ones
 * stick to a limited number of controlled relation types & node labels
 
-
-
-## **First step: create a local database**
+### First step: create a local database
 
 1️⃣ `run` neo4j Desktop
 2️⃣ on the left you see 3 icons: `Projects` | `DBMS` | `Graph Apps`
@@ -157,13 +129,7 @@ Or, using `Cypher` representation: `(:Subject)-[:Predicate]->(:Object)`
 
 ⚠️ older versions of neo4j use older iterations of `Cypher`
 
-
-
-![bg 90%](browser1.png)
-
-
-
-## **Awesome Procedures on Cypher (APOC)**
+### Awesome Procedures on Cypher (APOC)
 
 APOC is an add-on library. It provides additional procedures & functions
 
@@ -174,13 +140,7 @@ We will use one `procedure` to allow export of the database to `CSV`
 3️⃣ click on the 🔻 under APOC (3)
 4️⃣ click on `Install` (4) to install APOC procedures *for the selected database*
 
-
-
-![bg 90%](browser2.png)
-
-
-
-## **Tweak the `apoc.conf` File**
+### Tweak the `apoc.conf` File
 
 We also need to tell neo4j that it is allowed to use `apoc` procedures:
 
@@ -195,27 +155,17 @@ apoc.import.file.use_neo4j_config=true
 apoc.export.file.enabled=true
 ```
 
-
-
-![bg 80%](tweakapoc.png)
-
-
-
-## **`START` the database**
-
-![bg right 50%, 60%](dump.png)
+### `START` the database**
 
 ⚠️ A DBMS must first be `STARTED`
 
-1️⃣ click on the `...` next to its name
-2️⃣ click on `Start`
+1️⃣ click on the `...` next to its name <br />
+2️⃣ click on `Start` <br />
 3️⃣ wait...
 
 ⚠️ When the DBMS is started, DO NOT CLOSE THE TERMINAL!
 
-
-
-## **Open neo4j Browser**
+### Open neo4j Browser
 
 Once started, we can interact with a DBMS either via the `terminal` or using an `App`
 
@@ -225,15 +175,14 @@ We will use the `neo4j Desktop` app to manipulate the data with `Cypher`
 2️⃣ click on `neo4j Browser`
 
 We are now ready to feed and query our database
+</details>
 
+<details>
+<summary>
+Part 3: Cypher basics
+</summary>
 
-
-
-![](browser.png)
-
-
-
-## **Cypher basics (representation)**
+### Representation
 
 `Cypher` is a simple, descriptive & near natural language that uses ASCII representation:
 
@@ -243,9 +192,7 @@ We are now ready to feed and query our database
 * node `labels` & relation `types` are introduced with `:`
 * nodes & relations `properties` are enclosed in `curly brackets {}`
 
-
-
-## **Cypher basics (conventions)**
+### Conventions
 
 - node `labels` are capitalized & preceded by a `:`
 - relation `types` are written in `SNAKE_CASE_CAPITAL` & preceded by `:`
@@ -255,18 +202,14 @@ We are now ready to feed and query our database
 - the first property associated with a node is its `primary key`
 - `null` values are simply an absence of property (no need to specify null values)
 
-
-
-## **Cypher basics (examples)**
+### Examples
 
 * `(:Object)` represents a node with an `object label`
 * `(:Movie {title: 'The Matrix'})` represents a node with a `movie label` & a `title property` (a text string between quotes)
 * `(matrix:Movie {title: 'The Matrix', released: 1997})` = same node with a second `property` (an integer) and a declared `variable`
 * `-[role:ACTED_IN {roles: 'Neo'}]->` represents a `directed` relation with a `role variable`, a `roles` property & an `ACTED_IN type`
 
-
-
-## **Cypher basics (clauses)**
+### Cypher clauses
 
 `Cypher` relies on a limited number of explicit instructions and clauses:
 
@@ -279,9 +222,7 @@ We are now ready to feed and query our database
 *we will only see a few
 note that they can be chained and combined with `boolean` & `logical` operators*
 
-
-
-## **Cypher basics (variables)**
+### Variables
 
 Like other languages, `Cypher` uses `variables` (or aliases) chosen arbitrarily by the user to collect & manipulate nodes, relations and properties
 
@@ -294,9 +235,7 @@ MATCH (c:Object)
 RETURN c
 ```
 
-
-
-## **Cypher basics (types of properties)**
+### Types of properties
 
 data types can be declared for `properties` upon creation or update (e.g., `toInteger(), toBoolean(), toFloat()` etc.)
 
@@ -307,10 +246,14 @@ data types can be declared for `properties` upon creation or update (e.g., `toIn
 - {Date} noted date('YYYY-MM-DD')
 - {StringArray} comma-separated list of strings
 - {DoubleArray} comma-separated list of decimal values
+</details>
 
+<details>
+  <summary>
+    Part 4: Create data
+  </summary>
 
-
-## **The neo4j Browser window**
+### The neo4j Desktop window
 
 * on the left, the star allows you to `bookmark` code that works
 * on top is the command line where you type `Cypher` code
@@ -322,30 +265,17 @@ data types can be declared for `properties` upon creation or update (e.g., `toIn
   * view in full screen
   * download your results in `JSON`, `CSV`, `PNG` and `SVG` formats
 
+### Let's create our first node
 
+We use the `CREATE` instruction to create nodes and relations.
 
-![](browsernode.png)
-
-
-
-## **Let's create our first node**
-
-We use the `CREATE` instruction
-
-We want our first node:
-
-1️⃣ to be categorized as an 'Object' (we give it an `:Object` `label`) 
-2️⃣ to have three `properties`: `id`, `type`, & `name`
-
-➡️ in the command line, type:
+We want our first node to be categorized as an 'Object' (we give it an `:Object` `label`); and to have three `properties`: `id`, `type`, & `name`. So, in the command line, type:
 
 ```cy
 CREATE (:Object {id: 'obj0001', type: 'painting', name: 'Mona Lisa'})
 ```
 
-
-
-## **View our first node**
+### View our first node
 
 To view our node, we `MATCH` it with an alias & `RETURN` it:
 
@@ -364,22 +294,11 @@ MATCH (n)
 RETURN n
 ```
 
+### Let's click on the `node` we created...
 
+⚠️ In case you make mistakes, **there is no going back**, but if you can identify your error, it can usually be corrected
 
-![bg left 80%](mona.png)
-
-## **Let's click on the `node` we created...**
-
-<>
-
-> ⚠️ in case you make mistakes, there is no going back
-> if you can identify your error, it can usually be corrected
-
-<>
-
-
-
-## **Add some properties**
+### Add some properties
 
 Let us make Mona Lisa also a `Person` (another `label`) & give it a 'female' `property`
 
@@ -394,15 +313,11 @@ MATCH (n)
 RETURN n
 ```
 
-😓 Oops...  
+😓 Oops... We have 2 nodes with the same name: 1 with a `Person` label, 1 with an `Object` label.
 
-We have 2 nodes with the same name: 1 with a `Person` label, 1 with an `Object` label.
+### Let's delete our second node
 
-
-
-## **Let's delete our second node**
-
-1️⃣ we `MATCH` our target node 
+1️⃣ we `MATCH` our target node <br />
 2️⃣ we `DELETE` it:
 
 ```cy
@@ -418,9 +333,7 @@ WHERE p.sex = 'female'
 DELETE p
 ```
 
-
-
-## **How to update node properties & labels?**
+### How to update node properties & labels?
 
 1️⃣ we `MATCH` our target node (here, using a `WHERE` clause)
 2️⃣ we `SET` properties and labels (we `chain` the 2 `SET` insctructions):
@@ -432,11 +345,9 @@ SET p.sex = 'male', p:Person
 RETURN p
 ```
 
-⚠️ note the `,` in the `SET` clause (used to chain instructions)
+⚠️ Note the `,` in the `SET` clause (used to chain instructions)
 
-
-
-## **Let's correct our mistake**
+### Let's correct our mistake
 
 Mona Lisa should be 'female'; but perhaps she declared herself non-binary too:
 
@@ -450,9 +361,7 @@ RETURN p
 ⚠️ `SET` either creates a new property or updates an existing one
 ⚠️ a `property` can be discarded by being `SET` to `NULL`
 
-
-
-## **Remove a property**
+### Remove a property
 
 To delete a property, we can either `SET` it to `null`:
 
@@ -474,9 +383,7 @@ RETURN p
 
 ⚠️ `DELETE` is only used to delete nodes and/or relations
 
-
-
-## **The `RETURN` clause**
+### The `RETURN` clause
 
 If you only specify the alias of a node in the `RETURN` clause, neo4j shows the corresponding nodes in graph form
 
@@ -495,9 +402,7 @@ RETURN p.name AS Alias, p.sex AS personGender
 
 The result is a table that can be downloaded 
 
-
-
-## **A second node**
+### A second node
 
 Let us add `Leonardo` to the graph:
 
@@ -508,18 +413,14 @@ RETURN p
 
 ⚠️ `RETURN` is not necessary upon creation
 
-⚠️ `MERGE` is another way to create entities
+⚠️ `MERGE` is another way to create entities 
+
 💡 `MERGE` creates only IF entities with the exact same properties do not already exist
 (it avoids duplication)
 
+### Create a relation between two nodes**
 
-
-## **Create a relation between two nodes**
-
-
-We have created the nodes
-
-Now we want to relate them:
+We have created the nodes and now we want to relate them:
 
 1️⃣ first, we `MATCH` the entities we want to manipulate
 2️⃣ then, we `CREATE` the relation:
@@ -537,9 +438,7 @@ MATCH (n)
 RETURN n
 ```
 
-
-
-## **Delete relations and nodes**
+### Delete relations and nodes
 
 Like nodes, relations can be removed with `DELETE`
 
@@ -551,18 +450,17 @@ DELETE r
 ```
 
 ⚠️ In `MATCH` clauses, relations can be undirected
+
 ⚠️ Related nodes CANNOT be deleted before they are `DETACHED` from one another.
 
-Let's clean our graph:
+Let's clean our graph (delete everything):
 
 ```cy
 MATCH (n)
 DETACH DELETE n
 ```
 
-
-
-## **Create patterns**
+### Create patterns
 
 All the above process could have been done with one line of code:
 
@@ -582,9 +480,7 @@ sex: 'female',gender: 'non-binary'})-[:HAS_CREATOR {profession: 'painter'}]->
 (:Person {id: 'per0001', name: 'Leonardo da Vinci', sex: 'male'}) 
 ```
 
-
-
-## **A simple query**
+### A simple query
 
 Querying the graph to visualize it (or parts of it) & to answer questions
 
@@ -599,11 +495,10 @@ RETURN p.sex AS sex, labels(p) AS labels
 ```
 
 💡 Note the `labels(alias)` instruction in the `RETURN` clause
+
 💡`id(variable)` would similarly return the `ids` created by the system
 
-
-
-## **Stop, export, dump and save your files**
+### Stop, export, dump and save your files
 
 ⚠️ Once you are finished, `STOP` the running DBMS before closing neo4j
 
@@ -612,27 +507,21 @@ RETURN p.sex AS sex, labels(p) AS labels
 * `dump` it (easy to reimport)
 * or save it as a `csv` with `apoc` (import will be more burdensome)
 
-
-
 ## **Dump**
 
 A `dump` file can be saved somewhere safe to be imported later:
 
-1️⃣ close the neo4j Browser window
-2️⃣ `STOP` the database
-3️⃣ click on the `...` ➡️ `dump` (a dump file is added to your `files` list)
-4️⃣ click on the `...` ➡️ `Reveal in file explorer` 
+1️⃣ close the neo4j Browser window <br />
+2️⃣ `STOP` the database <br />
+3️⃣ click on the `...` ➡️ `dump` (a dump file is added to your `files` list) <br />
+4️⃣ click on the `...` ➡️ `Reveal in file explorer` <br />
 ➡️ copy the files somewhere safe
 
 ⚠️ importing `dump` files is quite easy ( you may have noted that the `...` also give you the option to create a DBMS from dump or import it in a DBMS)
 
-
-
-## **Export to `CSV`**
+### Export to `CSV`
 
 Unlike `Dump`, export to `csv` is done in neo4j Browser (your DBMS has to be started)
-
-<>
 
 If you have installed the `APOC` plugins & added the `apoc.conf` to your DBMS config:
 
@@ -641,14 +530,14 @@ CALL apoc.export.csv.all('filename.csv', {})
 ```
 
 The exported `.csv.` is exported to the `import` folder of your DBMS...
+</details>
 
+<details>
+<summary>
+Part 5: Let us play with some more data
+</summary>
 
-
-## **Let us play with some more data**
-
-A complete `Graph of Thrones` dataset can be directly played by running `:play got`
-
-<>
+If you want to do a littel more, a complete `Graph of Thrones` dataset can be directly played by running `:play got`
 
 Let us `import` Characters of book 1 from 2 local `.csv` files:
 
@@ -657,9 +546,7 @@ Let us `import` Characters of book 1 from 2 local `.csv` files:
 * book1gendersample.csv
   * Headers: `Name`, `Nobility` & `Gender`
 
-
-
-## **Before we start...**
+### Before we start...
 
 Let's delete everything in our graph to make a fresh start:
 
@@ -668,17 +555,13 @@ MATCH (n)
 DETACH DELETE n
 ```
 
-<>
-
 ⚠️ Remember: our two nodes are related, so we `DETACH` before we `DELETE`
-
-
-
-## **Uniqueness constraints**
 
 Importing data from files means 1️⃣ `LOADING` a `.csv`, 2️⃣ `CREATING` nodes and relations, and 3️⃣ upon creation adding `properties`
 
-<>
+### Uniqueness constraints
+
+If needed, we can apply `uniqueness constraints`on properties that we want to be unique (like a unique identifier)
 
 First, let us create a `UNIQUENESS CONSTRAINT` to make sure, one one property, that we have unique values (a unique id):
 
