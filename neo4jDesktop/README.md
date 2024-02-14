@@ -2,16 +2,16 @@
 
 > WORCK Training School 2 -- Bielefeld, February 15th, 2024
 
-<details>
-<summary>
-Part 1: neo4j, graph theory and graph models
-</summary>
-
 ### What you will learn? What you will not learn?
 
 ➕ How to install & configure neo4j Desktop; manage databases with neo4j Desktop & neo4j Browser; create, import, refactor & save data; query your graph & save query results.
 
 ➖ How to interact with online neo4j DBMS/via terminal; data modeling & queries optimization.
+
+<details>
+<summary>
+Part 1: neo4j, graph theory and graph models
+</summary>
 
 ### neo4j & graph theory
 
