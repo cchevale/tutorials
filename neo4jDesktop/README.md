@@ -15,7 +15,7 @@ How to interact with online neo4j DBMS/via terminal; data modeling & queries opt
 Part 1: neo4j, graph theory and graph models
 </summary>
 
-### neo4j & graph theory
+### Neo4j & graph theory
 
 Neo4j is a graph database management system that can either be deployed online (community server edition/AuraDB) or locally (neo4j Desktop); it uses a language called `Cypher`; and it is based on graph theory.
 
@@ -29,7 +29,7 @@ Leonhard Euler, 1736, Königsberg, East. Prussia asked a question: "Can we walk 
 
 ### Two types of graph model
 
-The Resource Description Framework (**RDF**) and the Label Property Graph (**LPG**) are two data models used to store data in the form of graphs. Both were developed in the 2000s and are more 'relational' & agile than so-called 'relational databases'.
+The Resource Description Framework (**RDF**) and the Label Property Graph (**LPG**) are two data models used to store data in the form of graphs. Both were developed in the 2000s and are more "relational" & agile than so-called 'relational databases' (like Filemaker).
 
 Use cases examples: 
 
