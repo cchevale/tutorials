@@ -4,20 +4,24 @@
 
 ### What you will learn? 
 
-How to install & configure neo4j Desktop; manage databases with neo4j Desktop & neo4j Browser; create, import, refactor & save data; query your graph & save query results.
+- How to install & configure neo4j Desktop
+- Manage databases with neo4j Desktop & neo4j Browser
+- Create, import, refactor & save data
+- Query your graph & save query results
 
 ### What you will not learn?
 
-How to interact with online neo4j DBMS/via terminal; data modeling & queries optimization.
+- How to interact with online neo4j DBMS or via a terminal
+- Data modeling & queries optimization
 
 <details>
 <summary>
-Part 1: neo4j, graph theory and graph models
+Part 1: Neo4j, graph theory and graph models
 </summary>
 
 ### Neo4j & graph theory
 
-Neo4j is a graph database management system that can either be deployed online (community server edition/AuraDB) or locally (neo4j Desktop); it uses a language called `Cypher`; and it is based on graph theory.
+Neo4j is a graph database management system that can either be deployed online (on a community edition server or an AuraDB) or locally (neo4j Desktop). It uses a language called `Cypher` and it is based on graph theory.
 
 <picture>
 <img alt="YOUR-ALT-TEXT" src="https://graphacademy.neo4j.com/courses/neo4j-fundamentals/1-graph-thinking/1-seven-bridges/images/7-bridges.jpg"
@@ -25,13 +29,13 @@ Neo4j is a graph database management system that can either be deployed online (
   height= auto>
 </picture>
 
-Leonhard Euler, 1736, Königsberg, East. Prussia asked a question: "Can we walk through the city and cross each of the seven bridges only once?". The answer was we cannot, but in the process, he defined the problem in abstract terms: a representation of land masses as entities (vertices) connected by bridges (edges).
+Leonhard Euler, 1736, Königsberg (East. Prussia) asked a question: "Can we walk through the city and cross each of the seven bridges only once?". The answer was we cannot, but in the process, he defined the problem in abstract terms: a representation of land masses as entities (vertices) connected by bridges (edges).
 
 ### Two types of graph model
 
-The Resource Description Framework (**RDF**) and the Label Property Graph (**LPG**) are two data models used to store data in the form of graphs. Both were developed in the 2000s and are more "relational" & agile than so-called 'relational databases' (like Filemaker).
+There are two main types of graph models around nowadays: the Resource Description Framework (**RDF**) and the Label Property Graph (**LPG**), which are used to store data in the form of graphs. Both were developed in the 2000s and are more "relational" & agile than so-called 'relational databases' (like Filemaker).
 
-Use cases examples: 
+Graphs are now everywhere. Use cases examples include: 
 
 * route finding
 * supply-chain analytics
@@ -40,29 +44,29 @@ Use cases examples:
 
 The base of graph models are `semantic triples` (vertices connected by edges): `Subject—Predicate—Object`
 
-In `Cypher` representation, a triple looks like this: `(:Subject)-[:Predicate]->(:Object)`
+In `Cypher` representation, a triple would look as follows: `(:Subject)-[:Predicate]->(:Object)`
 
-### RDF vs LPG pros and cons
+### RDF vs LPG (pros and cons)
 
 | **The Resource Description Framework** | The Label Property Graph |
 | :--- | :--- |
 | stable storage and & **data exchange** | **storage & querying** |
-| standardization (W3C specs), interoperability, scalability | less demanding (learning curve, development, and infrastructure) |
+| standardization (W3C specs), interoperability, scalability | less demanding (learning curve, development, infrastructure) |
 | ontologies & open vocabularies | entities have an internal structure: `labels`, `properties`, `types` |
-| 'atomizes' information | **schema free** and **near natural language** |
+| 'atomizes' information according to a preset schema | **schema free** and **near natural language** |
 | `vertices` and `edges` have no internal structure | flexible: allows progressive refactoring as the model evolves |
-| indexed; uses 'artificial' vertices as joins | easy to 'read' and simpler |
+| indexed; uses 'artificial' vertices as joins | easy to 'read' and simpler to implement and use |
 | heavy infrastructure (sparql endpoints) | local deployment and availability of `apps` |
 
-⚠️ no schema does not mean you do not have to think about your model and flexibility can quickly lead to messiness.
+⚠️ No schema does not mean you do not have to think about your model and flexibility can quickly lead to messiness.
 
 ### LPG basics
 
 The LPG model is made of **triples** composed of `nodes` linked by directed `relation(s)`:
 
-* **nodes** have `Labels` & `Properties` (key-value pairs)
+* **nodes** have `Labels` & `Properties` (key-value pairs, as in python dictionary)
 * **relations** are directed & have `Types` & `Properties`
-* **queries** use `Cypher` instructions to traverse the graph, `MATCH` `patterns`, & `RETURN` results.
+* **queries** use `Cypher` instructions to traverse the graph, `MATCH` patterns, & `RETURN` results.
 
 <picture>
 <img alt="YOUR-ALT-TEXT" src="https://graphacademy.neo4j.com/courses/neo4j-fundamentals/2-property-graphs/1-property-graph/images/node-labels.jpg"
@@ -73,7 +77,7 @@ The LPG model is made of **triples** composed of `nodes` linked by directed `rel
 
 <details>
 <summary>
-Part 3: First steps with neo4j
+Part 2: Setting up neo4j
 </summary>
 
 ### Installing neo4j Desktop
@@ -81,34 +85,39 @@ Part 3: First steps with neo4j
 1️⃣ [https://neo4j.com/download/](https://neo4j.com/download/)  <br />
 2️⃣ click on `download` <br />
 3️⃣ fill in the form <br />
-4️⃣ copy activation key <br />
+4️⃣ copy the activation key <br />
 5️⃣ install the downloaded file and enter the activation key <br />
 
 ### What does neo4j Desktop do?
 
-Neo4j is only a possible "brick" in your digital workflow. The brick that stores your data in a structured form, but not your files (scans, transcripts, etc.). It allows you to:
+Neo4j is only a possible "brick" in your digital workflow. The brick that stores your data in a structured form, but not your files (scans, transcripts, etc.). 
+
+Neo4j Desktop is a piece of software developed by the neo4j company, that allows you to:
 
 * interact with a local (or online) DBMS using `Cypher`
-* manage your graph databases: Create DBMS | Delete | Dump | Clone
+* manage your graph databases (you can create DBMS, create and refactor entities, delete, cump and clone your DBMS)
 * manage neo4j Desktop `Apps` & plugins
-* manage files
+* manage files like `.csv` or `cypher` files
 * get help
 
-If you want to learn more, there is plenty of online resources available:
+If you want to learn more, there is plenty of resources available online:
 
 * [the neo4j documentation](https://neo4j.com/docs/)
 * [the neo4j developer tutorials](https://neo4j.com/developer/)
 * [the Graph Academy](https://graphacademy.neo4j.com/>)
 * [cheatsheets](https://mpolinowski.github.io/docs/Development/Graphs/2020-05-03--neo4j-cheat-sheet/2020-05-03/)
+* [another cheatsheet on GitHub](https://github.com/bitfede/cypher-cheat-sheet/blob/master/README.md)
 * neo4j Desktop integrated tutorials like `:play cypher` or `:play got`
 
 ### The LPG design process
 
-1. understand your domain & define a use case scenario
-2. develop an initial graph data model (nodes & relations)
-3. test use cases against the initial data model
-4. create the graph (instance model) & test data using Cypher
-5. refactor in case of change or for better performance
+As neo4j is schema-free, you do not need to have a predefined model to start feeding a DBMS with data. An LPG design process will in general involve the following steps:
+
+1️⃣ understand your domain & define a use case scenario <br />
+2️⃣ develop an initial graph data model (nodes & relations) <br />
+3️⃣ test use cases against the initial data model <br />
+4️⃣ create the graph (instance model) & test data using `Cypher` <br />
+5️⃣ refactor in case of change or for better performance <br />
 
 **General tips**:
 
@@ -122,34 +131,32 @@ If you want to learn more, there is plenty of online resources available:
 
 ### First step: create a local database
 
-1️⃣ `run` neo4j Desktop
-2️⃣ on the left you see 3 icons: `Projects` | `DBMS` | `Graph Apps`
-3️⃣ click on `Projects` (1) ➡️ `New` (2) ➡️ `Create Project`
-4️⃣ `select` your project (3)
-5️⃣ on the right, click `Add` (4) ➡️ `local DBMS`
-6️⃣ give the local DB a `name` ➡️ set a `password` ➡️ choose a neo4j `version` ➡️ `Create` (this will take a few minutes)
+1️⃣ `run` neo4j Desktop <br />
+2️⃣ on the left you see 3 icons: `Projects` | `DBMS` | `Graph Apps` <br />
+3️⃣ click on `Projects` ➡️ `New` ➡️ `Create Project` <br />
+4️⃣ `select` your project <br />
+5️⃣ on the right, click `Add` ➡️ `local DBMS` <br />
+6️⃣ give the local DB a `name` ➡️ set a `password` ➡️ choose a neo4j `version` ➡️ `Create` (this will take a few minutes) 
 
-⚠️ older versions of neo4j use older iterations of `Cypher`
+⚠️ `Cypher` is an evolutive language: older versions of neo4j use older iterations of `Cypher` (meaning that code snippets that you may find online can sometimes be deprecated)
 
 ### Awesome Procedures on Cypher (APOC)
 
-APOC is an add-on library. It provides additional procedures & functions
+In addition to neo4j built-in functionalities, users can use the so-called Awesome Procedures on Cypher. APOC is an add-on library that provides additional procedures & functions. We will use one `procedure` to allow the export of a database to `CSV`. To do so, APOC pugins need to be installed on your DBMS. 
 
-We will use one `procedure` to allow export of the database to `CSV`
-
-1️⃣ click on your database (1) ➡️ to uncover the panel on the right
-2️⃣ click on `Plugins` (2)
-3️⃣ click on the 🔻 under APOC (3)
-4️⃣ click on `Install` (4) to install APOC procedures *for the selected database*
+1️⃣ click on your database to uncover the panel on the right <br />
+2️⃣ click on `Plugins` <br />
+3️⃣ click on the 🔻 under APOC <br />
+4️⃣ click on `Install` to install APOC procedures *for the selected database*
 
 ### Tweak the `apoc.conf` File
 
-We also need to tell neo4j that it is allowed to use `apoc` procedures:
+To be able to use APOC instructions, we also need to tell neo4j that it is allowed to use `apoc` procedures by creating and editing a configuration file called `apoc.conf`:
 
-1️⃣ click the `...` (1) ➡️ `Open folder` (2) ➡️ `DBMS` (3)
-2️⃣ the dbms folder opens -> then navigate to `conf` folder
-3️⃣ in the `conf` folder, create a new `apoc.conf` file with a text editor
-4️⃣ `paste` the following 3 lines and save the `apoc.conf` file
+1️⃣ click the `...` ➡️ `Open folder` ➡️ `DBMS` <br />
+2️⃣ the dbms folder opens -> then navigate to the `conf` folder <br />
+3️⃣ in the `conf` folder, create a new `apoc.conf` file with a text editor <br />
+4️⃣ `paste` the following 3 lines in it and save
 
 ```txt
 apoc.import.file.enabled=true
@@ -159,13 +166,13 @@ apoc.export.file.enabled=true
 
 ### `START` the database**
 
-⚠️ A DBMS must first be `STARTED`
+⚠️ Before you can use your DBMS it must first be `STARTED`:
 
 1️⃣ click on the `...` next to its name <br />
 2️⃣ click on `Start` <br />
 3️⃣ wait...
 
-⚠️ When the DBMS is started, DO NOT CLOSE THE TERMINAL!
+⚠️ Once a DBMS is started a Terminal instance opens. **DO NOT CLOSE THE TERMINAL!**
 
 ### Open neo4j Browser
 
@@ -173,10 +180,10 @@ Once started, we can interact with a DBMS either via the `terminal` or using an 
 
 We will use the `neo4j Desktop` app to manipulate the data with `Cypher`
 
-1️⃣ on the left, click on the icon with 4 squares (`Gaph Apps`)
+1️⃣ on the left, click on the icon with 4 squares (`Gaph Apps`) <br />
 2️⃣ click on `neo4j Browser`
 
-We are now ready to feed and query our database
+We are now ready to feed and query our database!
 </details>
 
 <details>
@@ -188,6 +195,8 @@ Part 3: Cypher basics
 
 `Cypher` is a simple, descriptive & near natural language that uses ASCII representation:
 
+(='.'=) <br />
+
 * `nodes` are represented by `()`
 * `relations` are represented by `-[]->`
 * `patterns` are represented as follows: `()-[]->()`
@@ -196,41 +205,42 @@ Part 3: Cypher basics
 
 ### Conventions
 
-- node `labels` are capitalized & preceded by a `:`
+- node `labels` are `capitalized` & preceded by a `:`
 - relation `types` are written in `SNAKE_CASE_CAPITAL` & preceded by `:`
 - `properties` are written in `camelCase`
 - multiple properties (arrays) are separated by `,`
-- `ids` are automatically attributed to entities (not stable)
+- `<ids>` are automatically attributed to entities (not stable)
 - the first property associated with a node is its `primary key`
 - `null` values are simply an absence of property (no need to specify null values)
 
 ### Examples
 
-* `(:Object)` represents a node with an `object label`
-* `(:Movie {title: 'The Matrix'})` represents a node with a `movie label` & a `title property` (a text string between quotes)
-* `(matrix:Movie {title: 'The Matrix', released: 1997})` = same node with a second `property` (an integer) and a declared `variable`
-* `-[role:ACTED_IN {roles: 'Neo'}]->` represents a `directed` relation with a `role variable`, a `roles` property & an `ACTED_IN type`
+* `(:Object)`
+  * represents a node with an `Object label`
+* `(:Movie {title: 'The Matrix'})`
+  * represents a node with a `Movie label` & a `title property` (with a string "The Matrix" as a value)
+* `(matrix:Movie {title: 'The Matrix', released: 1997})`
+  * same node with a second `property` (with an integer as a value) and a declared `variable` (*matrix*)
+* `-[role:ACTED_IN {roles: 'Neo'}]->`
+  * represents a `directed` relation with a `role variable`, an `ACTED_IN type` & a `roles` property
 
 ### Cypher clauses
 
-`Cypher` relies on a limited number of explicit instructions and clauses:
+`Cypher` relies on a limited number of explicit instructions and clauses (written with CAPITALS):
 
-* `CREATE` and `MERGE`
-* `MATCH` and `RETURN`
-* `REMOVE` and `DELETE`
-* `SET`
+* `CREATE` and `MERGE` (`CREATE` will create new data whatever is in the graph)
+* `MATCH` and `RETURN` (in a `MATCH` clause you define the parameters of how Cypher traverses the graph and `RETURN` defines what output you want to get)
+* `REMOVE` and `DELETE` (`REMOVE` a property; `DELETE` an entity)
+* `SET` (`SET` is used to update properties of entities)
 * the `WHERE`, `WITH` or `CASE` clause
 
-*we will only see a few
-note that they can be chained and combined with `boolean` & `logical` operators*
+*We will only see a few clauses. Note that they can be chained and combined with `boolean` & `logical` operators.*
 
 ### Variables
 
-Like other languages, `Cypher` uses `variables` (or aliases) chosen arbitrarily by the user to collect & manipulate nodes, relations and properties
+Like other languages (like Python), `Cypher` uses `variables` (or aliases) chosen arbitrarily by the user to collect & manipulate nodes, relations and properties.
 
-The `MATCH` instruction can be used to collect nodes with a particular label & `RETURN` the content of those nodes
-
-In the following, we use a `c` variable to collect all nodes with an `Object` label. We return the selected nodes in a graph form with the `RETURN` instruction:
+For instance, we can use a variable in a `MATCH` instruction to collect nodes with a particular label & `RETURN` the content of those nodes with the variable. Variables can be passed arguments (we will see that later). In the following, we use a `c` variable to collect all nodes with an `Object` label. We return the selected nodes in a graph form with the `RETURN` instruction:
 
 ```cypher
 MATCH (c:Object) 
@@ -239,7 +249,7 @@ RETURN c
 
 ### Types of properties
 
-data types can be declared for `properties` upon creation or update (e.g., `toInteger(), toBoolean(), toFloat()` etc.)
+Data types can be declared for `properties` upon creation or update (e.g., `toInteger(), toBoolean(), toFloat()` etc.). Cypher can interpret different data types, including `date`, `durations` or `dateTime` 
 
 - {String} text (between single or double quotes)
 - {Long} integer value
@@ -257,29 +267,35 @@ data types can be declared for `properties` upon creation or update (e.g., `toIn
 
 ### The neo4j Desktop window
 
+The easiest way to interact with a neo4j DBMS is to do this in a neo4j Desktop window. Remember that your DBMS must first be started.
+
+What does the neo4j Desktop interface look like:
+
 * on the left, the star allows you to `bookmark` code that works
 * on top is the command line where you type `Cypher` code
 * below are your previous instructions in card form
 * on the left of each card are icons to `switch` between graph, text, or table `view`
-* on the right of each card is an overview of the node labels and relation types
+* on the right of each card is an overview of the node labels & relation types
 * the icons on the right allow you to:
-  * bookmark or rerun the code
-  * view in full screen
-  * download your results in `JSON`, `CSV`, `PNG` and `SVG` formats
+  * bookmark or rerun a `Cypher` code
+  * view your graph in full screen
+  * download your results in `JSON`, `CSV`, `PNG` & `SVG` formats
 
 ### Let's create our first node
 
-We use the `CREATE` instruction to create nodes and relations.
+We use the `CREATE` instruction to create nodes & relations.
 
-We want our first node to be categorized as an 'Object' (we give it an `:Object` `label`); and to have three `properties`: `id`, `type`, & `name`. So, in the command line, type:
+We want our first node to be categorized as an 'Object' (we give it an `:Object` `label`); & to have three `properties`: `id`, `type`, & `name`. Remember that node labels & relation types are introduced by `:`. Properties are always embedded in a node's `()` or a relation's `[]` & written as `key-value pairs` between `{}`. So, in the command line, type:
 
 ```cy
 CREATE (:Object {id: 'obj0001', type: 'painting', name: 'Mona Lisa'})
 ```
 
+⚠️ The values of the properties of our node are of a `string` datat type & thus written between quotes. 
+
 ### View our first node
 
-To view our node, we `MATCH` it with an alias & `RETURN` it:
+To view our node, we `MATCH` it (we use a set of parameters to `MATCH` what we target), pass it to an alias & `RETURN` it:
 
 ```cy
 MATCH (c:Object)
@@ -338,7 +354,7 @@ DELETE p
 ### How to update node properties & labels?
 
 1️⃣ we `MATCH` our target node (here, using a `WHERE` clause)
-2️⃣ we `SET` properties and labels (we `chain` the 2 `SET` insctructions):
+2️⃣ we `SET` properties & labels (we `chain` the 2 `SET` insctructions):
 
 ```cy
 MATCH (p)
@@ -422,7 +438,7 @@ RETURN p
 
 ### Create a relation between two nodes**
 
-We have created the nodes and now we want to relate them:
+We have created the nodes & now we want to relate them:
 
 1️⃣ first, we `MATCH` the entities we want to manipulate
 2️⃣ then, we `CREATE` the relation:
@@ -440,11 +456,11 @@ MATCH (n)
 RETURN n
 ```
 
-### Delete relations and nodes
+### Delete relations & nodes
 
 Like nodes, relations can be removed with `DELETE`
 
-We `MATCH` a pattern, give an alias to the relation, and `DELETE` it:
+We `MATCH` a pattern, give an alias to the relation, & `DELETE` it:
 
 ```cy
 MATCH (leo:Person {id: 'per0001'})-[r]-(mona:Object {id: 'obj0001'})
@@ -488,7 +504,7 @@ Querying the graph to visualize it (or parts of it) & to answer questions
 
 Example of question: 
 
->What is the `sex` of `Persons` who declare themselves `non-binary` and is there a relation with the way they are labelled?
+>What is the `sex` of `Persons` who declare themselves `non-binary` & is there a relation with the way they are labelled?
 
 ```cypher
 MATCH (p:Person)
@@ -500,7 +516,7 @@ RETURN p.sex AS sex, labels(p) AS labels
 
 💡`id(variable)` would similarly return the `ids` created by the system
 
-### Stop, export, dump and save your files
+### Stop, export, dump & save your files
 
 ⚠️ Once you are finished, `STOP` the running DBMS before closing neo4j
 
@@ -509,7 +525,7 @@ RETURN p.sex AS sex, labels(p) AS labels
 * `dump` it (easy to reimport)
 * or save it as a `csv` with `apoc` (import will be more burdensome)
 
-## **Dump**
+### Dump
 
 A `dump` file can be saved somewhere safe to be imported later:
 
@@ -539,14 +555,16 @@ The exported `.csv.` is exported to the `import` folder of your DBMS...
 Part 5: Let us play with some more data
 </summary>
 
-If you want to do a littel more, a complete `Graph of Thrones` dataset can be directly played by running `:play got`
+### Play with the 'Graph of Thrones' project data
 
-Let us `import` Characters of book 1 from 2 local `.csv` files:
+If you would like to do a little more, there is a complete `Graph of Thrones` dataset that can be directly `played` by running `:play got` in the neo4j Desktop command line.
+
+We want to import data from existing files. Let's `import` Characters of GOT book 1 from 2 local `.csv` files:
 
 * book1edgessample.csv
-  * Headers: `Source`, `Target`, `Type`, `id` &  `weight`
+  * this file has the following headers: `Source`, `Target`, `Type`, `id` &  `weight`
 * book1gendersample.csv
-  * Headers: `Name`, `Nobility` & `Gender`
+  * it has the following headers: `Name`, `Nobility` & `Gender`
 
 ### Before we start...
 
@@ -557,81 +575,84 @@ MATCH (n)
 DETACH DELETE n
 ```
 
-⚠️ Remember: our two nodes are related, so we `DETACH` before we `DELETE`
+⚠️ Remember: our nodes have relations (they are attached, so to speak), so we `DETACH` before we can `DELETE`:
 
-Importing data from files means 1️⃣ `LOADING` a `.csv`, 2️⃣ `CREATING` nodes and relations, and 3️⃣ upon creation adding `properties`
+Importing data from files means:
+
+1️⃣ `LOADING` a `.csv` <br />
+2️⃣ `CREATING` nodes & relations <br />
+3️⃣ add `properties` upon creation
 
 ### Uniqueness constraints
 
-If needed, we can apply `uniqueness constraints`on properties that we want to be unique (like a unique identifier)
-
-First, let us create a `UNIQUENESS CONSTRAINT` to make sure, one one property, that we have unique values (a unique id):
+Sometimes, we want to apply `uniqueness constraints`on properties that we want to be unique (like a unique identifier). Let us make sure that our nodes with a Character label do not have the same name property:
 
 ```cy
 CREATE CONSTRAINT FOR (c:Character) REQUIRE c.name IS UNIQUE
-// Query 01
 ```
 
-To check existing straints in our graph: `SHOW CONSTRAINTS` or `:schema`
+We can check existing constraints in our graph with the following commands:
 
-Drop a concstraint with its `name`: `DROP CONSTRAINT constraintName`
+```cy
+SHOW CONSTRAINTS
+```
 
+or
 
+```cy
+:schema
+```
 
-## **Load and check a `.csv` file**
+If necessary, we can also drop a constraint with its `name`:
 
-1️⃣ place the `book1edgessample.csv` in the `import` folder
-2️⃣ `LOAD` it and pass it to a `variable` to make it available for manipulation
+```cy
+DROP CONSTRAINT constraintName
+```
 
-Let's check if neo4j can read the file (using a `LIMIT` clause for efficiency)
+### Load & check a `.csv` file
+
+To import our first `.csv`, we need to load it:
+
+1️⃣ place the `book1edgessample.csv` in the `import` folder <br />
+2️⃣ `LOAD` it & pass it to a `variable` to make it available for manipulation
+
+Let's first load the file to check if neo4j can read it (using a `LIMIT` clause for efficiency):
 
 ```cy
 LOAD CSV WITH HEADERS FROM 'file:///book1edgessample.csv' AS line
 RETURN line
 LIMIT 10
-// Query 02
 ```
 
-<>
+⚠️ Instead of local files, we could use online files using an `http` address (ending by `.csv`)
 
-⚠️ instead of local files, we can also use an `http` address (ending by `.csv`)
+### Load & create the data from `.csv`
 
-
-
-## **Load and create the data from `.csv`**
-
-`LOAD` does not import per se but makes the data available (using column `headers`)
-
-To avoid creating duplicate nodes, we use `MERGE` instead of `CREATE`
+`LOAD` does not import per se but makes the data available (using the column `headers` to reference where the information comes from). To avoid creating duplicate nodes, we use `MERGE` instead of `CREATE` (in our `.csv` file, Characters can appear either as Target or Source, so if we used `CREATE`, we would create them n-times):
 
 ```cy
 LOAD CSV WITH HEADERS FROM 'file:///book1edgessample.csv' AS row
 MERGE (src:Character {name: row.Source})
 MERGE (tgt:Character {name: row.Target})
 MERGE (src)-[r:INTERACTS {weight: toInteger(row.weight)}]->(tgt)
-// Query 03
 ```
 
 The result should be `Added 100 labels, created 100 nodes, set 269 properties, created 169 relationships`
 
-⚠️ note the `toInteger()` statement that defines weight data as integers
+⚠️ Note the `toInteger()` statement that defines data from the 'weight' column as integers.
 
+### Add data from another `.csv`
 
-
-## **Add data from another `.csv` 1️⃣**
-
-Let us view the graph:
+Let us view our graph:
 
 ```cy
 MATCH (n)
 RETURN n
 ```
 
-Our nodes only have a `Character` label and a `name` property
+For the moment, our nodes only have a `Character` label & a `name` property (this is what was in our `.csv` file). How can we import `properties` from another file?
 
-How can we import `properties` from another file?
-
-1️⃣ add the `book1gendersample.csv` file to the import folder
+1️⃣ add the `book1gendersample.csv` file to the import folder <br />
 2️⃣ check whether it can be read
 
 ```cy
@@ -640,15 +661,7 @@ RETURN line
 LIMIT 10
 ```
 
-
-
-## **Add data from another `.csv` 2️⃣**
-
-The file uses `Name`, `Nobility` and `Gender` as variables
-
-We made sure that names in the `Name` column are the same as in our first dataset (they have to match)
-
-We could try the following:
+The file uses `Name`, `Nobility` & `Gender` as variables. When preparing the files, we made sure that names in the `Name` column are the same as in our first dataset (they have to match). We could try the following:
 
 ```cy
 LOAD CSV WITH HEADERS FROM 'file:///book1gendersample.csv' AS line
@@ -657,19 +670,12 @@ ON MATCH SET c.gender = line.Gender, c.house = row.Nobility
 // Do not try this
 ```
 
-
-
-## **Better instructions**
-
-This would work but it would create duplicates of Character nodes
-
-We do not need the `MERGE` instruction: we do not create new nodes or relations:
+This would work but it would create duplicates of Character nodes. We do not need the `MERGE` instruction: we do not create new nodes or relations:
 
 ```cy
 LOAD CSV WITH HEADERS FROM 'file:///book1gendersample.csv' AS row
 MATCH (c:Character {name: row.Name})
 SET c.gender = row.Gender, c.house = row.Nobility
-// Query 04
 ```
 
 Let's check what this does:
@@ -679,9 +685,7 @@ MATCH (a:Character {name: 'Daenerys-Targaryen'}), (b:Character {name: 'Bran-Star
 RETURN a, b
 ```
 
-
-
-## **View the data structure with APOC and view the graph**
+### View the data structure with APOC & view the graph
 
 View the graph model (with `apoc` procedure):
 
@@ -703,13 +707,9 @@ MATCH (n)
 RETURN n
 ```
 
+### Analyze the data
 
-
-## **Analyze the data**
-
-We can now query the graph to analyze our data
-
-We could also do simple stats (average and standard deviations): 
+We can now query the graph to analyze our data. We could also do simple stats (average & standard deviations): 
 
 ```cy
 MATCH (c:Character)-[:INTERACTS]->()
@@ -718,11 +718,9 @@ RETURN min(num) AS min, max(num) AS max, avg(num) AS avg_characters, stdev(num) 
 // where count() counts the number of character nodes who have relations with other nodes
 ```
 
-And much more, like centrality measures, shortest paths, pivotal nodes, etc.
+We could do much more, like centrality measures, shortest paths, pivotal nodes, etc.
 
-
-
-## **Let's do some counting 1️⃣**
+### Let's do some counting
 
 How many Character nodes in the database?
 
@@ -737,12 +735,7 @@ What is the most common number of interactions?
 MATCH ()-[r]->()
 RETURN r.weight, count(*)
 ORDER BY count(*) DESC
-// Query 05
 ```
-
-
-
-## **Let's do some counting 2️⃣**
 
 How many Character nodes have a `male` property?
 
@@ -751,7 +744,7 @@ MATCH (n:Character {gender: 'Male'})
 RETURN count(n) AS numberOfMaleCharacters
 ```
 
-Let's use a `WITH` clause to count Male and Female Characters and their ratio:
+Let's use a `WITH` clause to count Male & Female Characters & their ratio:
 
 ```cy
 MATCH (m:Character {gender: 'Male'})
@@ -759,12 +752,7 @@ WITH count(m) AS numMales
 MATCH (f:Character {gender: 'Female'})
 WITH count(f) AS numFemales, numMales
 RETURN numMales, numFemales, toFloat(numFemales) / numMales AS genderRatio
-// Query 06
 ```
-
-
-
-## **Let's do some counting 3️⃣**
 
 How many people does one character interact with?
 
@@ -774,36 +762,27 @@ RETURN c1.name as name,
 COUNT(*) AS Total
 ```
 
-Can we count the number of interactions of one Character and get a list of the people they interact with? (`COLLECT`)
+Can we count the number of interactions of one Character & get a list of the people they interact with? (`COLLECT`)
 
 ```cy
 MATCH (c1)-[r:INTERACTS]->(c2)
 RETURN c1.name as Person,
 COUNT(*) as Total,
 COLLECT(c2.name)
-// Query 07
 ```
 
+### Let's do some exploration
 
+Let us identify: 
 
-## **Let's do some exploration**
-
-![bg left 70%](explore1.png)
-
-Let us identify 
-1️⃣ who interacts with Bran Stark besides Arya Stark 
+1️⃣ who interacts with Bran Stark besides Arya Stark  <br />
 2️⃣ who interacts with both of them
-
-
-
-## **Identify the right pattern to traverse**
 
 ...to do so, we need to identify the pattern that Cypher must `traverse` to return only the results we want:
 
 ```cy
 MATCH (a:Character {name: 'Arya-Stark'})-[r1]-(b:Character {name: 'Bran-Stark'})-[r2]-(c:Character)
 RETURN c.name
-// Query 08
 ```
 
 And:
@@ -811,12 +790,9 @@ And:
 ```cy
 MATCH (a:Character {name: 'Arya-Stark'})-[r1]-(b)-[r2]-(c:Character {name: 'Bran-Stark'})
 RETURN b.name
-// Query 09
 ```
 
-
-
-## **Ask questions**
+### Ask questions
 
 Who in the database has the same `gender` property as Arya Stark?
 
@@ -824,7 +800,6 @@ Who in the database has the same `gender` property as Arya Stark?
 MATCH (c:Character), (c1:Character {name: 'Arya-Stark'}) 
 WHERE c.gender = c1.gender AND id(c) <> id(c1)
 RETURN c.name
-// Query 10
 ```
 
 Are there nodes for which `gender` data is missing?
@@ -843,9 +818,7 @@ RETURN DISTINCT n.gender
 //we can do the same with n.house to check house names
 ```
 
-
-
-## **Let's practice**
+### Let's practice...
 
 Which Characters have a name that starts with 'J'?
 
@@ -855,13 +828,11 @@ WHERE p.name STARTS WITH 'J'
 RETURN p.name
 ```
 
-
-
-## **`CASE` clauses**
+### `CASE` clauses
 
 We would like to export a dataset of the gender distribution by house to plot it. To do this, we need a less simple clause: `CASE` 
 
-> A `CASE` clause introduces a condition (`WHEN`) and instructions:
+> A `CASE` clause introduces a condition (`WHEN`) & instructions:
 
 ```cy
 MATCH (c:Character)
@@ -869,12 +840,9 @@ RETURN c.house AS House,
 COUNT(CASE WHEN c.gender='Male' THEN 1 END) AS NumberMales, 
 COUNT(CASE WHEN c.gender='Female' THEN 1 END) AS NumberFemales, 
 COUNT(CASE WHEN c.gender IS NULL THEN 1 END) AS NoGender;
-// Query 11
 ```
 
-
-
-## **Let's `ORDER` our results'**
+### Let's `ORDER` our results
 
 Let us order our results alphabetically with `ORDER BY` (2 options):
 
@@ -896,9 +864,7 @@ COUNT(CASE WHEN c.gender='Female' THEN 1 END) AS NumberFemales,
 COUNT(CASE WHEN c.gender IS NULL THEN 1 END) AS NoGender
 ```
 
-
-
-## **Add dates**
+### Add dates
 
 Let's add a few (random) dates to our dataset with `date('YYYY-MM-DD')
 
@@ -906,7 +872,6 @@ Let's add a few (random) dates to our dataset with `date('YYYY-MM-DD')
 MATCH (a:Character {name: 'Arya-Stark'})
 MATCH (b:Character {name: 'Jon-Snow'})
 SET a.dob = date('0300-09-23'), b.dob = date('0290-06-12')
-// Query 12
 ```
 
 And add another date property to a Character (we just know the year)
@@ -915,14 +880,11 @@ And add another date property to a Character (we just know the year)
 MATCH (c:Character {name: 'Bronn'})
 SET c.dob = date({year: 295}), c.dod = date({year: 320})
 RETURN c
-// Query 13
 ```
 
-⚠️ click on the node and check how the date was interpreted...
+⚠️ Click on the node & check how the date was interpreted...
 
-
-
-## **Test the existence of properties**
+### Test the existence of properties
 
 Let's test the existence of female Characters with date of birth:
 
@@ -931,7 +893,6 @@ MATCH (p:Character)
 WHERE p.gender = 'Female'
 AND p.dob IS NOT NULL
 RETURN p.name AS name, p.gender AS Gender, p.house AS Alliegence
-// Query 14
 ```
 
 Let's check relations that have a certain `weight` property:
@@ -940,17 +901,15 @@ Let's check relations that have a certain `weight` property:
 MATCH (a)-[p]->(b)
 WHERE p.weight IN [1, 5, 7]
 RETURN a.name AS Name, p.weight AS Weight, b.name AS Target
-// Query 15
-```
+``
 
+### Play with dates
 
-## **Play with dates**
-
-Bronn has a date of birth and a date of death. How old was he when he died?
+Bronn has a date of birth & a date of death. How old was he when he died?
 
 ```cy
 MATCH (c:Character {name: 'Bronn'})
-RETURN duration.between(c.dob,c.dod) // Query 16
+RETURN duration.between(c.dob,c.dod)
 ```
 
 The calculation is provided in `Cypher` notation.
@@ -967,14 +926,12 @@ Who was born between the years 200 and 400?
 MATCH (c)
 WHERE c.dob IS NOT NULL
 AND c.dob.year >= 200 <= 400
-RETURN c.name As Character, c.dob AS Born // Query 17
+RETURN c.name As Character, c.dob AS Born
 ```
 
+### Refactor
 
-
-## **Refactor**
-
-1️⃣ add a second value to a property
+1Let us add a second value to a property:
 
 ```cy
 MATCH (c:Character {name: 'Jon-Snow'})
@@ -982,9 +939,9 @@ SET c.house = ['Stark', 'Nights-Watch']
 RETURN c.name as Name, c.house as Houses
 ```
 
-Look at the result and see how this created an array of values for the `house` property
+Look at the result and see how this created an array of values for the `house` property.
 
-2️⃣ change a property name in bulk. We want to change `gender` to `sex` but keep the values:
+2Now, let's change a property name in bulk. We want to change `gender` to `sex` for all nodes, but keep the values:
 
 ```cy
 MATCH (c:Character)
@@ -993,9 +950,7 @@ REMOVE c.gender
 RETURN c
 ```
 
-
-
-## **Transform properties into nodes**
+### Transform properties into nodes
 
 Case: Our characters have a gender but we want gender to be a specifi node instead of a property (we are thus changing the sctructure of our graph). We can do this in two steps (perhaps 1):
 
@@ -1016,15 +971,10 @@ CREATE (n)-[:HAS_GENDER]->(m)
 REMOVE n.gender
 ```
 
-
-
-## **Troubleshooting**
+### Troubleshooting
 
 * There is a lot on the neo4j website (see earlier)
-
 * About temporal values, see: [https://neo4j.com/docs/cypher-manual/current/values-and-types/temporal/](https://neo4j.com/docs/cypher-manual/current/values-and-types/temporal/)
-
 * Internet is your friend
-
 * Chat assistants are quite good at providing Cypher queries
-
+</details>
