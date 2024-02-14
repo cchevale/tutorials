@@ -1,0 +1,87 @@
+//01 Create uniqueness constraint
+CREATE CONSTRAINT FOR (c:Character) REQUIRE c.name IS UNIQUE
+
+//02 Check your csv file
+LOAD CSV WITH HEADERS FROM 'file:///book1edgessample.csv' AS line
+RETURN line
+LIMIT 10
+
+//03 Import GOT nodes and relations
+LOAD CSV WITH HEADERS FROM 'file:///book1edgessample.csv' AS row
+MERGE (src:Character {name: row.Source})
+MERGE (tgt:Character {name: row.Target})
+MERGE (src)-[r:INTERACTS {weight: toInteger(row.weight)}]->(tgt)
+
+//04 Update properties with second csv
+LOAD CSV WITH HEADERS FROM 'file:///book1gendersample.csv' AS row
+MATCH (c:Character {name: row.Name})
+SET c.gender = row.Gender, c.house = row.Nobility
+
+//05 Most common number of interactions
+MATCH ()-[r]->()
+RETURN r.weight, count(*)
+ORDER BY count(*) DESC
+
+//06 Gender distribution
+MATCH (m:Character {gender: 'Male'})
+WITH count(m) AS numMales
+MATCH (f:Character {gender: 'Female'})
+WITH count(f) AS numFemales, numMales
+RETURN numMales, numFemales, toFloat(numFemales) / numMales AS genderRatio
+
+//07 Num of interactions (with COLLECT)
+MATCH (c1)-[r:INTERACTS]->(c2)
+RETURN c1.name as Person,
+COUNT(*) as Total,
+COLLECT(c2.name) 
+
+//08 Num of interactions (besides)
+MATCH (a:Character {name: 'Arya-Stark'})-[r1]-(b:Character {name: 'Bran-Stark'})-[r2]-(c:Character)
+RETURN c.name
+
+//09 Num of interactions (with both)
+MATCH (a:Character {name: 'Arya-Stark'})-[r1]-(b)-[r2]-(c:Character {name: 'Bran-Stark'})
+RETURN b.name
+
+//10 Same gender as Arya Stark
+MATCH (c:Character), (c1:Character {name: 'Arya-Stark'}) 
+WHERE c.gender = c1.gender AND id(c) <> id(c1)
+RETURN c.name
+
+//11 Gender distribution by house (CASE))
+MATCH (c:Character)
+RETURN c.house AS House, 
+COUNT(CASE WHEN c.gender='Male' THEN 1 END) AS NumberMales, 
+COUNT(CASE WHEN c.gender='Female' THEN 1 END) AS NumberFemales, 
+COUNT(CASE WHEN c.gender IS NULL THEN 1 END) AS NoGender;
+
+//12 Add a few dates
+MATCH (a:Character {name: 'Arya-Stark'})
+MATCH (b:Character {name: 'Jon-Snow'})
+SET a.dob = date('0300-09-23'), b.dob = date('0290-06-12')
+
+//13 And another date info
+MATCH (c:Character {name: 'Bronn'})
+SET c.dob = date({year: 295}), c.dod = date({year: 320})
+RETURN c
+
+//14 Test existence of node property
+MATCH (p:Character)
+WHERE p.gender = 'Female'
+AND p.dob IS NOT NULL
+RETURN p.name AS name, p.gender AS Gender, p.house AS Alliegence
+
+//15 Test existence of relation property
+MATCH (a)-[p]->(b)
+WHERE p.weight IN [1, 5, 7]
+RETURN a.name AS Name, p.weight AS Weight, b.name AS Target
+
+//16 Calculate duration in years
+MATCH (c:Character {name: 'Bronn'})
+RETURN duration.between(c.dob,c.dod)
+
+//17 Who was born between...
+MATCH (c)
+WHERE c.dob IS NOT NULL
+AND c.dob.year >= 200 <= 400
+RETURN c.name As Character, c.dob AS Born
