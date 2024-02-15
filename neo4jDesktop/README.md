@@ -2,6 +2,8 @@
 
 > WORCK Training School 2 -- Bielefeld, February 15th, 2024
 
+Quick warning: This session is not designed to push you to use a specific tool. Our digital workflows are not about the tools that we use but about the questions we want to answer. Graph modeling **might or might not** be something that you want to use as part of your workflow. 
+
 ### What you will learn? 
 
 - How to install & configure neo4j Desktop
