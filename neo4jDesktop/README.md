@@ -93,7 +93,7 @@ Part 2: Setting up neo4j
 Neo4j is only a possible "brick" in your digital workflow. The brick that stores your data in a structured form, but not your files (scans, transcripts, etc.). Neo4j Desktop is a piece of software developed by the neo4j company, that allows you to:
 
 * interact with a local (or online) DBMS using `Cypher`
-* manage your graph databases (you can create DBMS, create and refactor entities, delete, cump and clone your DBMS)
+* manage your graph databases (you can create DBMS, create and refactor entities, delete, dump and clone your DBMS)
 * manage neo4j Desktop `Apps` & plugins
 * manage files like `.csv` or `cypher` files
 * get help
