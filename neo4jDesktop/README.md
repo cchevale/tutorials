@@ -933,3 +933,11 @@ REMOVE n.gender
 * Internet is your friend
 * [Chat assistants are quite good at providing Cypher queries](https://platform.openai.com/playground)
 </details>
+
+<details>
+<summary>
+Part 6: Other operations with Cypher
+</summary>
+
+Under construction (specific tasks not covered in the previous sections will soon be added)
+</details>
